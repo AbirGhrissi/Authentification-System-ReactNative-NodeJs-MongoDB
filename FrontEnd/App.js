@@ -1,22 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import FormHeader from './app/components/FormHeader';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+
+import MainNavigator from './app/MainNavigator';
+import LoginProvider from './app/context/LoginProvider';
 
 export default function App() {
   return (
-    <View style={{flex: 1, paddingTop: 120}}>
-      <View style={{height:100}}>
-        <FormHeader leftHeading='Welcome ' rightHeading='Back' subHeading='YouTube Task Manager'/>
-      </View>
-    </View>
+    <LoginProvider>
+      <NavigationContainer>
+        <MainNavigator />
+      </NavigationContainer>
+    </LoginProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
